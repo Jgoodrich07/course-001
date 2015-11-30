@@ -1,0 +1,35 @@
+bash_outputs.txt
+foo
+hello.sh
+hello.txt
+apple.md
+banana.md
+bar.txt
+baz.txt
+quux.txt
+foo/bar.txt
+foo/baz.txt
+foo/quux.txt
+total 24
+-rw-r--r--  1 Jerome  501  121 Nov 28 10:51 bash_outputs.txt
+drwxr-xr-x  7 Jerome  501  238 Nov 28 10:44 foo
+-rwxr-xr-x  1 Jerome  501   39 Nov 28 10:44 hello.sh
+-rw-r--r--  1 Jerome  501   13 Nov 28 10:44 hello.txt
+.
+..
+.secret
+bash_outputs.txt
+foo
+hello.sh
+hello.txt
+total 32
+drwxr-xr-x  7 Jerome  501  238 Nov 28 10:51 .
+drwxr-xr-x  5 Jerome  501  170 Nov 28 10:44 ..
+-rw-r--r--  1 Jerome  501    9 Nov 28 10:44 .secret
+-rw-r--r--  1 Jerome  501  399 Nov 28 10:52 bash_outputs.txt
+drwxr-xr-x  7 Jerome  501  238 Nov 28 10:44 foo
+-rwxr-xr-x  1 Jerome  501   39 Nov 28 10:44 hello.sh
+-rw-r--r--  1 Jerome  501   13 Nov 28 10:44 hello.txt
+-rw-r--r--  1 Jerome  501   8 Nov 28 10:44 foo/bar.txt
+-rw-r--r--  1 Jerome  501   8 Nov 28 10:44 foo/baz.txt
+-rw-r--r--  1 Jerome  501  10 Nov 28 10:44 foo/quux.txt

@@ -1,4 +1,33 @@
 #!/usr/bin/env ruby
 
 ## FIXME: Replace this code with a pure Ruby clone of the ls utility
-system("ls", *ARGV)
+#system("ls", *ARGV)
+require 'optparse'
+
+  parser = OptionParser.new
+  params = {}
+
+  parser.on("-a") {params[:all_files] = true}
+  parser.on("-l") {params[:long_format] = true}
+
+  params[:files] = parser.parse(ARGV)
+
+  is_directory = params[:files].empty? || params[:files].count == 1 && File.directory?(params[:files][0])
+
+  working_directory = is_directory ? params[:files][0] || "." : "."
+
+  Dir.chdir(working_directory) do
+    if is_directory
+      files = Dir.glob("*")
+    else
+      files = params[:files]
+    end
+    puts files
+  end
+
+  #file_info = files.map {|file| FileInfo.new(file)}
+
+  # if params[:long_format] && is_directory
+  #   files.each do file
+  #     puts[file.permisssions,file.owner_info,file.group_info,file.size,file.mod_time,file.name]
+  #   end
