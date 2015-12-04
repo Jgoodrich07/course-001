@@ -3,6 +3,7 @@
 ## FIXME: Replace this code with a pure Ruby clone of the ls utility
 #system("ls", *ARGV)
 require 'optparse'
+require_relative '../lib/file_info.rb'
 
   parser = OptionParser.new
   params = {}
@@ -17,17 +18,21 @@ require 'optparse'
   working_directory = is_directory ? params[:files][0] || "." : "."
 
   Dir.chdir(working_directory) do
-    if is_directory
+    if params[:all_files]
+      files = Dir.entries(working_directory)
+    elsif is_directory
       files = Dir.glob("*")
     else
       files = params[:files]
     end
-    puts files
+
+    file_info = files.map {|file| FileInfo.new(file)}
+
+    if params[:long_format]
+      file_info.each do |file|
+        puts file.permissions, file.links,file.owner_name,file.group_name,file.size,file.mod_time,file.name
+      end
+    else
+      puts files
+    end
   end
-
-  #file_info = files.map {|file| FileInfo.new(file)}
-
-  # if params[:long_format] && is_directory
-  #   files.each do file
-  #     puts[file.permisssions,file.owner_info,file.group_info,file.size,file.mod_time,file.name]
-  #   end

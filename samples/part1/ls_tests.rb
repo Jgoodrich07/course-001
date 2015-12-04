@@ -11,17 +11,17 @@ check("Dir listing", "foo")
 
 check("File glob", "foo/*.txt")
 
-check("Detailed output", "-l")
+#check("Detailed output", "-l")
 
-# check("Hidden files", "-a")
+check("Hidden files", "-a")
 
-# check("Hidden files with detailed output", "-a -l")
+#check("Hidden files with detailed output", "-a -l")
 
-# check("File glob with detailed output", "-l foo/*.txt")
+#check("File glob with detailed output", "-l foo/*.txt")
 
-# check("Invalid directory", "missingdir")
+#check("Invalid directory", "missingdir")
 
-# check("Invalid flag", "-Z")
+#check("Invalid flag", "-Z")
 
 puts "You passed the tests, yay!"
 
